@@ -1,0 +1,17 @@
+{
+  "name": "vue-static-app",
+  "version": "1.0.0",
+  "description": "A simple Vue.js static application",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx serve -s . -l 3000",
+    "serve": "npx serve -s .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": ["vue", "static", "app", "frontend"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.5.22"
+  }
+}
