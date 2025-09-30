@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Static App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ title }}</h1>
+        </header>
+        
+        <main>
+            <div class="container">
+                <hello-world :message="message"></hello-world>
+                
+                <div class="counter-section">
+                    <h2>Counter Example</h2>
+                    <p>Count: {{ count }}</p>
+                    <div class="button-group">
+                        <button @click="increment">+</button>
+                        <button @click="decrement">-</button>
+                        <button @click="reset">Reset</button>
+                    </div>
+                </div>
+                
+                <div class="todo-section">
+                    <h2>Simple Todo List</h2>
+                    <div class="add-todo">
+                        <input 
+                            v-model="newTodo" 
+                            @keyup.enter="addTodo" 
+                            placeholder="Add a new task..."
+                        >
+                        <button @click="addTodo">Add</button>
+                    </div>
+                    <ul class="todo-list">
+                        <li v-for="(todo, index) in todos" :key="index" :class="{ completed: todo.completed }">
+                            <span @click="toggleTodo(index)">{{ todo.text }}</span>
+                            <button @click="removeTodo(index)" class="remove-btn">×</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Vue Static App</p>
+        </footer>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
